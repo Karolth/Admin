@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <title>Inicio de Sesión</title>
+    <link rel="stylesheet" href="../CSS/index.css">
+    <h>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Formulario de Registro</title>
+</head>
+<body>
+<div class="container">
+    <div id="container-form">
+        <form id="login" class="sign-in" >
+            <h2>Iniciar Sesión</h2>
+            <div class="container-input">
+                <input type="text" id="username" placeholder="Usuario" required>
+            </div>
+            <div class="container-input">
+                <input type="password" id="password" placeholder="Password" required>
+            </div>
+            <button type="button" class="button" onclick="iniciarSesion()" >INICIAR SESIÓN</button>
+            <button id="btn-sign-in" class= "button" onclick="toggleForms()">REGISTRATE</button>
+            <div id="mensajeLogin" class="mensajeLogin"></div>
+        </form>
+    </div>
+    
+       
+    <div id="container-registro" style="display: none;">
+        <form id="registrate" class="sign-up">
+            <h2>Registrarse</h2>
+            <div class="container-input">
+                <input type="text" id="nombre_usuario" name="nombre_usuario" placeholder="Nombre" required>
+            </div>
+            <div class="container-input">
+                <input type="text" id="apellido_usuario" name="apellido_usuario" placeholder="Apellido" required>
+            </div>
+            <div class="container-input">
+                <input type="email" id="email_usuario" name="email_usuario" placeholder="Email" required>
+            </div>
+            <div class="container-input">
+                <input type="password" id="password_usuario" name="password_usuario" placeholder="Password" required>
+            </div>
+            <div class="container-input">
+                <input type="tel" id="telefono_usuario" name="telefono_usuario" placeholder="Teléfono">
+            </div>
+            <div class="container-input">
+                <input type="text" id="direccion_usuario" name="direccion_usuario" placeholder="Dirección">
+            </div>
+            <div class="container-input">
+                <select id="rol_usuario" name="rol_usuario" required>
+                    <option value="">Seleccionar Rol</option>
+                    <option value="Administrador">Administrador</option>
+                    <option value="Vendedor">Vendedor</option>
+                </select>
+            </div>
+            <button type="button" class="button" onclick="registro()">REGISTRARSE</button>
+            <div id="mensajeRegistro" class="mensajeRegistro"></div>
+        </form>
+        <button class="button" id="btn-sign-up" onclick="toggleForms()">VOLVER</button>
+<script src="../JS/SCRIP.js"></script>
+</body>
+</html>
