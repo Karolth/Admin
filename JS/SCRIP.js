@@ -114,7 +114,6 @@ function mostrarPerfil() {
             document.getElementById("email_usuario_perfil").value = data.email;
             document.getElementById("telefono_usuario_perfil").value = data.telefono;
             document.getElementById("direccion_usuario_perfil").value = data.direccion;
-            document.getElementById("rol_usuario_perfil").value = data.rol;
             
 
         } else {

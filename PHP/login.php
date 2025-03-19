@@ -41,7 +41,7 @@ if ($action == "register") {
         $stmt->bindParam(':email', $email);
         $stmt->bindParam(':password', $passwordHash);
         $stmt->bindParam(':telefono', $telefono);
-        $stmt->bindParam(':direccion', $direccion);
+        $stmt->bindParam(':direccion', $direcccion);
         $stmt->bindParam(':rol', $rol);
         $stmt->execute();
 
@@ -79,6 +79,7 @@ if ($action == "register") {
                 // Iniciar sesión y guardar los datos del usuario en la sesión
                 $_SESSION['user_id'] = $user['id_usuario'];
                 $_SESSION['user_name'] = $user['nombre_usuario'];
+                $_SESSION['rol_usuario'] = $user['rol_usuario'];
                 // $_SESSION['user_role'] = $user['rol']; // Asumiendo que tienes un campo 'rol' en tu tabla
 
                 echo json_encode(['success' => true , 'message' => 'Inicio de sección exitoso']);
@@ -115,7 +116,6 @@ elseif ($action == "getPerfil") {
                 'email'=> $user['email_usuario'],
                 'telefono'=> $user['telefono_usuario'],
                 'direccion'=> $user['direccion_usuario'],
-                'rol'=> $user['rol_usuario']
             ]);
         } else {
             echo json_encode(['success' => false, 'message' => 'Usuario no encontrado']);

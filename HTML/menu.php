@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="es">
-
+<?php
+session_start();
+$rol =  $_SESSION['rol_usuario'];
+?>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -32,9 +35,11 @@
                                 <h6>Provedor</h6>
                             </a>
                             <ul class="dropdown-menu">
+                            <?php if ($rol === 'Vendedor' || $rol === 'Administardor') : ?>
+                            <li><a class="dropdown-item" href="#" data-bs-toggle="modal"
+                            data-bs-target="#proveedorModal">Registra Provedor</a></li>
+                            <?php endif;  ?>
                                 <li><a href="vistaProveedores.php" class="btn">Ver Proveedores</a></li>
-                                <li><a class="dropdown-item" href="#" data-bs-toggle="modal"
-                                        data-bs-target="#proveedorModal">Registra Provedor</a></li>
                             </ul>
                         </li>
 
@@ -95,9 +100,12 @@
                                 <h6>Categoria</h6>
                             </a>
                             <ul class="dropdown-menu">
-                                <li><a href="vistaCategoria.php" data-bs-target="#categoriaModal" class="btn">Ver Categorías</a></li>
+                                <?php if ($rol === 'Vendedor' || $rol === 'Administardor') : ?>
                                 <li><a class="dropdown-item" href="" data-bs-toggle="modal"
-                                        data-bs-target="#categoriaModal">Crea una categoría</a></li>
+                                        data-bs-target="#categoriaModal">Crea una categoría</a>
+                                </li>
+                                <?php endif;  ?>
+                                <li><a href="vistaCategoria.php" data-bs-target="#categoriaModal" class="btn">Ver Categorías</a></li>
                             </ul>
                         </li>
 
@@ -129,17 +137,19 @@
                                 </div>
                             </div>
                         </div>
-
-                        <!-- producto -->
+    <!-- producto -->
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                                 aria-expanded="false">
                                 <h6>Producto</h6>
                             </a>
                             <ul class="dropdown-menu">
-                                <li><a href="vistaProductos.php" class="btn">Ver Productos</a></li>
+                            <?php if ($rol === 'Vendedor' || $rol === 'Administardor') : ?>
                                 <li><a class="dropdown-item" href="#" data-bs-toggle="modal"
                                         data-bs-target="#productoModal">Crear Producto</a></li>
+                                <?php endif;  ?>
+
+                                <li><a href="vistaProductos.php" class="btn">Ver Productos</a></li>                               
                             </ul>
                         </li>
 
@@ -223,6 +233,17 @@
                     </ul>
 
                     <!-- Modal de Perfil -->
+                    
+                        <label class="me-3 p-2">
+                            <?php echo  $_SESSION['rol_usuario']; ?>
+
+                        </label>
+
+                        <p id="rol_seleccionado"></p>
+
+
+                    
+
                     <li class="nav-item">
                         <a class="nav-link" href="#" id="navbarDropdown" data-bs-toggle="modal"
                             data-bs-target="#perfilModal" style="font-size: 16px;" onclick="mostrarPerfil()">Perfil</a>
@@ -244,14 +265,7 @@
                                     </p>
                                     <p><strong>Dirección:</strong> <input id="direccion_usuario_perfil"
                                             disabled></input></p>
-                                    <p>
-                                        <z>Rol:</strong>
-                                            <select id="rol_usuario_perfil" disabled name="rol_usuario">
-                                                <option value="">Seleccionar Rol</option>
-                                                <option value="Administrador">Administrador</option>
-                                                <option value="Vendedor">Vendedor</option>
-                                            </select>
-                                    </p>
+                                 
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary"
