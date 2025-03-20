@@ -35,7 +35,7 @@ $rol =  $_SESSION['rol_usuario'];
                                 <h6>Provedor</h6>
                             </a>
                             <ul class="dropdown-menu">
-                            <?php if ($rol === 'Vendedor' || $rol === 'Administardor') : ?>
+                            <?php if ($rol === 'Administrador' || $rol === 'Vendedor') : ?>
                             <li><a class="dropdown-item" href="#" data-bs-toggle="modal"
                             data-bs-target="#proveedorModal">Registra Provedor</a></li>
                             <?php endif;  ?>
@@ -100,7 +100,7 @@ $rol =  $_SESSION['rol_usuario'];
                                 <h6>Categoria</h6>
                             </a>
                             <ul class="dropdown-menu">
-                                <?php if ($rol === 'Vendedor' || $rol === 'Administardor') : ?>
+                            <?php if ($rol === 'Administrador' || $rol === 'Vendedor') : ?>
                                 <li><a class="dropdown-item" href="" data-bs-toggle="modal"
                                         data-bs-target="#categoriaModal">Crea una categoría</a>
                                 </li>
@@ -144,7 +144,7 @@ $rol =  $_SESSION['rol_usuario'];
                                 <h6>Producto</h6>
                             </a>
                             <ul class="dropdown-menu">
-                            <?php if ($rol === 'Vendedor' || $rol === 'Administardor') : ?>
+                            <?php if ($rol === 'Administrador' || $rol === 'Vendedor') : ?>
                                 <li><a class="dropdown-item" href="#" data-bs-toggle="modal"
                                         data-bs-target="#productoModal">Crear Producto</a></li>
                                 <?php endif;  ?>
