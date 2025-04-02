@@ -1,5 +1,5 @@
 <?php
-include "conexion.php";
+include "../../Config/conexion.php";
 
 // Iniciar o reanudar la sesión
 session_start();

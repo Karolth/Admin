@@ -1,5 +1,7 @@
 <?php
-include "conexion.php";
+include "../../Config/conexion.php";
+
+
 
 
 // Obtener y decodificar la entrada JSON

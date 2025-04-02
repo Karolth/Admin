@@ -10,7 +10,7 @@ function registroProveedor(){
     const direccion = document.getElementById("direccion_proveedor").value;
     const telefono = document.getElementById("telefono_proveedor").value;
 
-    fetch("/AdminPanel/PHP/proveedor.php", {
+    fetch("../../Models/PHP/proveedor.php", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
@@ -35,7 +35,7 @@ function registroProveedor(){
 
 function cargarProveedor() {
     const action = "cargarProveedor";
-    fetch("/AdminPanel/PHP/proveedor.php", {
+    fetch("../../Models/PHP/proveedor.php", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
@@ -66,7 +66,7 @@ function cargarProveedor() {
 function eliminarProveedor(id_proveedor) {
     if (!confirm("¿Seguro que deseas eliminar esta provedor?")) return;
 
-    fetch("/AdminPanel/PHP/proveedor.php", {
+    fetch("../../Models/PHP/proveedor.php", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
@@ -92,7 +92,7 @@ function eliminarProveedor(id_proveedor) {
 
 function EditarProveedor(id) {
     // Primero, obtener los datos actuales de la categoría
-    fetch("/AdminPanel/PHP/proveedor.php", {
+    fetch("../../Models/PHP/proveedor.php", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
@@ -127,7 +127,7 @@ function guardarEdicionProveedor() {
     const telefono = document.getElementById("edit_telefono_Proveedor").value;
 
 
-    fetch("/AdminPanel/PHP/proveedor.php", {
+    fetch("../../Models/PHP/proveedor.php", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"

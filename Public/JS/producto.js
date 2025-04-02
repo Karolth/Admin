@@ -23,13 +23,13 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 
-    function guardarProducto(id,nombre, imagen, descripcion, proveedor, categoria, precio) {
+    function guardarProducto(id, imagen,nombre, descripcion, proveedor, categoria, precio) {
         let productos = JSON.parse(localStorage.getItem("productos")) || [];
         
         const nuevoProducto = {
             id,
-            nombre,
             imagen,
+            nombre,
             descripcion,
             proveedor,
             categoria,
@@ -60,7 +60,8 @@ function mostrarProductos() {
             <td>$${producto.precio}</td>
             <td>${producto.categoria}</td>
             <td>${producto.proveedor}</td>
-            <td><button onclick="eliminarProducto(${index})">Eliminar</button></td>
+            <td><button onclick="eliminarProducto(${index})">❎</button></td>
+            <td><button onclick="EditarProdutoProducto(${index})">✏️</button></td>
         </tr>`;
         listaProductos.innerHTML += fila;
     });
@@ -71,5 +72,29 @@ window.eliminarProducto = function (index) {
     productos.splice(index, 1);
     localStorage.setItem("productos", JSON.stringify(productos));
     mostrarProductos();
+}
+
+function EditarProducto(index) {
+    // Obtener el producto de la lista
+    let producto = productos[index];
+    
+    // Pedir nuevos valores al usuario
+    let nuevoNombre = prompt("Nuevo nombre:", producto.nombre);
+    let nuevaDescripcion = prompt("Nueva descripción:", producto.descripcion);
+    let nuevoPrecio = prompt("Nuevo precio:", producto.precio);
+    let nuevaCategoria = prompt("Nueva categoría:", producto.categoria);
+    let nuevoProveedor = prompt("Nuevo proveedor:", producto.proveedor);
+    let nuevaImagen = prompt("Nueva URL de imagen:", producto.imagen);
+    
+    // Verificar si el usuario ingresó valores
+    if (nuevoNombre !== null) producto.nombre = nuevoNombre;
+    if (nuevaDescripcion !== null) producto.descripcion = nuevaDescripcion;
+    if (nuevoPrecio !== null) producto.precio = parseFloat(nuevoPrecio) || producto.precio;
+    if (nuevaCategoria !== null) producto.categoria = nuevaCategoria;
+    if (nuevoProveedor !== null) producto.proveedor = nuevoProveedor;
+    if (nuevaImagen !== null) producto.imagen = nuevaImagen;
+    
+    // Actualizar la tabla
+    renderizarProductos();
 }
 

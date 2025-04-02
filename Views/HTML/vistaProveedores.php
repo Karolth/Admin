@@ -12,7 +12,7 @@
             padding: 20px;
             background-color: #f5f5f5;
         }
-        .containerCategoria {
+        .containerProveedor {
             max-width: 800px;
             margin: 0 auto;
             background-color: white;
@@ -72,17 +72,17 @@
 
 <body>
 
-    <div class="containerCategoria">
-        <h1>Lista de Categorías</h1>
+    <div class="containerProveedor">
+        <h1>Lista de Proveedores</h1>
         <table class="category-list">
             <thead>
                 <tr>
-                    <th>ID</th>
-                    <th>Nombre</th>
-                    <th>Acciones</th>
+                <th>Nombre</th>
+                <th>Dirección</th>
+                <th>Teléfono</th>
                 </tr>
             </thead>
-            <tbody id="listaCategorias">
+            <tbody id="listaProvedor">
             </tbody>
         </table>
     </div>
@@ -91,11 +91,15 @@
       <div id="modalEditar" class="modal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.5);">
         <div class="modal-content" style="background: rgb(255, 255, 255); padding: 20px; border-radius: 8px; width: 300px; margin: 10% auto; position: relative;">
             <span onclick="cerrarModalEditar()" style="position: absolute; top: 10px; right: 15px; cursor: pointer; font-size: 20px;">&times;</span>
-            <h2>Editar Categoría</h2>
-            <form id="formEditarCategoria" onsubmit="guardarEdicionCategoria(); return false;">
-                <input type="hidden" id="edit_id_categoria">
-                <label for="edit_nombre_categoria">Nombre:</label>
-                <input type="text" id="edit_nombre_categoria" required style="width: 100%; padding: 8px; margin-top: 5px;">
+            <h2>Editar Provedor</h2>
+            <form id="formEditarProveedor" onsubmit="guardarEdicionProveedor(); return false;">
+                <input type="hidden" id="edit_id_Proveedor">
+                <label for="edit_nombre_Proveedor">Nombre:</label>
+                <input type="text" id="edit_nombre_Proveedor" required style="width: 100%; padding: 8px; margin-top: 5px;">
+                <label for="edit_direccion_Proveedor">direccion:</label>
+                <input type="text" id="edit_direccion_Proveedor" required style="width: 100%; padding: 8px; margin-top: 5px;">
+                <label for="edit_telefono_Proveedor">telefono:</label>
+                <input type="text" id="edit_telefono_Proveedor" required style="width: 100%; padding: 8px; margin-top: 5px;">
                 <br><br>
                 <button type="submit" class="btn btn-primary">Guardar</button>
                 <button type="button" onclick="cerrarModalEditar()" class="btn btn-secondary">Cancelar</button>
@@ -107,6 +111,7 @@
             <p>&copy; 2025 Sistema de Gestión de Inventario</p>
         </div>
     </footer>
-    <script src="../JS/categoria.js"></script>
+    <script src="../../Public/JS/provedor.js"></script>
+    
 </body>
 </html>

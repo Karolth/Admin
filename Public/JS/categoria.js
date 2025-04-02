@@ -7,7 +7,7 @@ function agregarCategoria() {
     
     var nombre = document.getElementById("nombre_categoria").value;
     
-    fetch("/AdminPanel/PHP/categoria.php", {
+    fetch("../../Models/PHP/categoria.php", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
@@ -32,7 +32,7 @@ function agregarCategoria() {
 
 function cargarCategoria() {
     const action = "cargarCategoria";
-    fetch("/AdminPanel/PHP/categoria.php", {
+    fetch("../../Models/PHP/categoria.php", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
@@ -62,7 +62,7 @@ function cargarCategoria() {
 function eliminarCategoria(id_categoria) {
     if (!confirm("¿Seguro que deseas eliminar esta categoria?")) return;
 
-    fetch("/AdminPanel/PHP/categoria.php", {
+    fetch("../../Models/PHP/categoria.php", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
@@ -87,7 +87,7 @@ function eliminarCategoria(id_categoria) {
 
 function EditarCategoria(id) {
     // Primero, obtener los datos actuales de la categoría
-    fetch("/AdminPanel/PHP/categoria.php", {
+    fetch("../../Models/PHP/categoria.php", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
@@ -117,7 +117,7 @@ function guardarEdicionCategoria() {
     const id = document.getElementById("edit_id_categoria").value;
     const nombre = document.getElementById("edit_nombre_categoria").value;
 
-    fetch("/AdminPanel/PHP/categoria.php", {
+    fetch("../../Models/PHP/categoria.php", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"

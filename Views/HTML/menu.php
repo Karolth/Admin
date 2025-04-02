@@ -3,12 +3,13 @@
 <?php
 session_start();
 $rol =  $_SESSION['rol_usuario'];
+
 ?>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SUPERMARKET</title>
-    <link rel="stylesheet" href="../CSS/style.css">
+    <link rel="stylesheet" href="../../Public/CSS/style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
 </head>
 
@@ -147,8 +148,7 @@ $rol =  $_SESSION['rol_usuario'];
                             <?php if ($rol === 'Administrador' || $rol === 'Vendedor') : ?>
                                 <li><a class="dropdown-item" href="#" data-bs-toggle="modal"
                                         data-bs-target="#productoModal">Crear Producto</a></li>
-                                <?php endif;  ?>
-
+                            <?php endif; ?>
                                 <li><a href="vistaProductos.php" class="btn">Ver Productos</a></li>                               
                             </ul>
                         </li>
@@ -166,7 +166,7 @@ $rol =  $_SESSION['rol_usuario'];
                                     <div class="modal-body">
                                         <section id="formularioProducto"
                                             class="contenedor bg-light text-center text-dark">
-                                            <form id="productoForm">
+                                            <form id="productoForm"  onsubmit="registroProducto(event)">
                                                 <div style="margin-bottom: 20px;">
                                                     <label for="nombre_producto"
                                                         style="display: block; margin-bottom: 8px; font-weight: 600; color: #555; text-align: left;">
@@ -217,7 +217,7 @@ $rol =  $_SESSION['rol_usuario'];
                                                             style="width: 100%; padding: 12px; padding-left: 30px; border: 1px solid #ddd; border-radius: 6px; box-sizing: border-box; font-size: 16px; transition: border-color 0.3s;">
                                                     </div>
                                                 </div>
-                                                <button id="btnRegistrar" type="submit" onclick="registroProducto()"
+                                                <button id="btnRegistrar" type="submit"
                                                     style="background-color: #3f51b5; color: white; border: none; padding: 12px 20px;
                                                      border-radius: 6px; cursor: pointer; font-size: 16px; font-weight: 600; width: 100%; 
                                                      transition: background-color 0.3s;">Registrar
@@ -235,11 +235,10 @@ $rol =  $_SESSION['rol_usuario'];
                     <!-- Modal de Perfil -->
                     
                         <label class="me-3 p-2">
-                            <?php echo  $_SESSION['rol_usuario']; ?>
-
+                            <?php echo $rol= $_SESSION['rol_usuario']; ?>
+                            <p id="rol_seleccionado"></p>
                         </label>
-
-                        <p id="rol_seleccionado"></p>
+                      
 
 
                     
@@ -272,6 +271,8 @@ $rol =  $_SESSION['rol_usuario'];
                                         onclick="habilitar()">editar</button>
                                     <button id="guaradar" type="button" class="btn btn-primary"
                                         onclick="modificarPerfil() ">Guardar</button>
+                                        <button type="button" class="btn btn-danger"
+                                         onclick="cerrarSesion()">Cerrar Sesión</button>
                                 </div>
                             </div>
                         </div>

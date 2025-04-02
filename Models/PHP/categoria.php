@@ -1,5 +1,5 @@
 <?php
-include "conexion.php";
+include "../../Config/conexion.php";
 
 // Obtener y decodificar la entrada JSON
 $input = json_decode(file_get_contents("php://input"), true);

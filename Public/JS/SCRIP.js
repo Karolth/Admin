@@ -8,7 +8,7 @@ function iniciarSesion() {
     const password = document.getElementById("password").value;
     let mensaje = document.getElementById("mensajeLogin");
 
-    fetch("/AdminPanel/PHP/login.php", {
+    fetch("../../Models/PHP/login.php", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
@@ -69,7 +69,7 @@ function registro() {
     const direccion = document.getElementById("direccion_usuario").value;
     const rol = document.getElementById("rol_usuario").value;
 
-    fetch("/AdminPanel/PHP/login.php", {
+    fetch("../../Models/PHP/login.php", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
@@ -151,7 +151,7 @@ function modificarPerfil() {
   const direccion = document.getElementById("direccion_usuario_perfil").value;
   const rol = document.getElementById("rol_usuario_perfil").value;
 
-  fetch("/AdminPanel/PHP/login.php", {
+  fetch("../../Models/PHP/login.php", {
     method: "POST",
     headers: {
       "Content-Type": "application/json"
@@ -178,4 +178,19 @@ function modificarPerfil() {
     });
     
     
+}
+
+function cerrarSesion() {
+    // Eliminar la sesión del usuario
+    fetch('../../Models/PHP/login.php', { method: 'POST' })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                alert('Sesión cerrada correctamente');
+                window.location.href = '../HTML/registrar.html'; // Redirigir al login
+            } else {
+                alert('Error al cerrar sesión');
+            }
+        })
+        .catch(error => console.error('Error:', error));
 }

@@ -3,7 +3,7 @@ function cargarSelect(){
 
 
 // document.addEventListener("DOMContentLoaded", function () {
-    fetch("/AdminPanel/PHP/p_c.php")
+    fetch("../../Models/PHP/p_c.php")
         .then(response => response.json())
         .then(data => {
             var proveedorSelect = document.getElementById("proveedor_producto");
