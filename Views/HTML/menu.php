@@ -2,7 +2,7 @@
 <html lang="es">
 <?php
 session_start();
-$rol =  $_SESSION['rol_usuario'];
+$rol_usuario =  $_SESSION['rol_usuario']?? '';
 
 ?>
 <head>
@@ -36,7 +36,7 @@ $rol =  $_SESSION['rol_usuario'];
                                 <h6>Provedor</h6>
                             </a>
                             <ul class="dropdown-menu">
-                            <?php if ($rol === 'Administrador' || $rol === 'Vendedor') : ?>
+                            <?php if ($rol_usuario === 'Administrador' || $rol_usuario === 'Vendedor') : ?>
                             <li><a class="dropdown-item" href="#" data-bs-toggle="modal"
                             data-bs-target="#proveedorModal">Registra Provedor</a></li>
                             <?php endif;  ?>
